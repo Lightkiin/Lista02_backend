@@ -36,3 +36,14 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Gerado por gitignore.io para Java, IntelliJ
+
+*.class
+*.log
+*.jar
+*.war
+*.ear
+.idea/
+*.iml
+out/
