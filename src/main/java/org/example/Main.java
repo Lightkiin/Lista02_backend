@@ -4,7 +4,45 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ex03();
+        String[] nomes = { "William", "Felipe", "Maradona", "Renato" };
+        String[] sobrenomes = {"Gaucho", "Mineiro", "Paulista", "Geromel", "Silva", "Junior"};
+        String[] clubes = {"Criciuma", "Fortaleza", "Vasco", "ABC", "Paysandu", "Prospera", "Brusque"};
+        String[] posicoes = {"goleiro", "zagueiro", "lateral", "meio-campo", "atacante"};
+
+        Random random = new Random();
+
+        String[] jogadores = new String[11];
+
+        String nome = nomes[random.nextInt(nomes.length)];
+        String sobrenome = sobrenomes[random.nextInt(sobrenomes.length)];
+        String clube = clubes[random.nextInt(clubes.length)];
+        String posicao = posicoes[random.nextInt(posicoes.length)];
+        Short idade = (short) random.nextInt(1, 30);
+
+        String[] aramazenaNome = new String[11];
+        String[] aramazenaSobrenome = new String[11];
+        String[] aramazenaClube = new String[11];
+        String[] aramazenaPosicao = new String[11];
+        Short[] aramazenaIdade = new Short[11];
+
+        for(int c = 0; c <= 10; c++ ){
+            aramazenaNome[c] = nome;
+            aramazenaSobrenome[c] = sobrenome;
+            aramazenaClube[c] = clube;
+            aramazenaPosicao[c] = posicao;
+            aramazenaIdade[c] = idade;
+        }
+
+        for(int c = 0; c <= 10; c++ ){
+            Jogador player = new Jogador(
+                    aramazenaNome[c],
+                    aramazenaSobrenome[c],
+                    aramazenaClube[c],
+                    aramazenaPosicao[c],
+                    aramazenaIdade[c]
+            );
+            System.out.println(player.nome + " " + player.sobrenome + " é um futbolista brasileiro de " + player.idade + " anos que atua como " + player.posicao + " Atualmente no clube " + player.clube);
+        }
     }
 
     static void ex01() {
@@ -62,4 +100,5 @@ public class Main {
             System.out.println(nome + " é um Pokémon do tipo " + tipo + " de nível " + nivel + ".");
         }
     }
+
 }
