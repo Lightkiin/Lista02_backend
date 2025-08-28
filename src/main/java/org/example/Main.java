@@ -2,6 +2,8 @@ package org.example;
 import java.util.Random;
 import java.util.Scanner;
 
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
         String[] nomes = { "William", "Felipe", "Maradona", "Renato" };
@@ -11,21 +13,20 @@ public class Main {
 
         Random random = new Random();
 
-        String[] jogadores = new String[11];
-
-        String nome = nomes[random.nextInt(nomes.length)];
-        String sobrenome = sobrenomes[random.nextInt(sobrenomes.length)];
-        String clube = clubes[random.nextInt(clubes.length)];
-        String posicao = posicoes[random.nextInt(posicoes.length)];
-        Short idade = (short) random.nextInt(1, 30);
-
         String[] aramazenaNome = new String[11];
         String[] aramazenaSobrenome = new String[11];
         String[] aramazenaClube = new String[11];
         String[] aramazenaPosicao = new String[11];
         Short[] aramazenaIdade = new Short[11];
 
+        // >>> aqui sorteia dentro do loop <<<
         for(int c = 0; c <= 10; c++ ){
+            String nome = nomes[random.nextInt(nomes.length)];
+            String sobrenome = sobrenomes[random.nextInt(sobrenomes.length)];
+            String clube = clubes[random.nextInt(clubes.length)];
+            String posicao = posicoes[random.nextInt(posicoes.length)];
+            Short idade = (short) (random.nextInt(29) + 1); // 1 a 30
+
             aramazenaNome[c] = nome;
             aramazenaSobrenome[c] = sobrenome;
             aramazenaClube[c] = clube;
@@ -41,8 +42,14 @@ public class Main {
                     aramazenaPosicao[c],
                     aramazenaIdade[c]
             );
-            System.out.println(player.nome + " " + player.sobrenome + " é um futbolista brasileiro de " + player.idade + " anos que atua como " + player.posicao + " Atualmente no clube " + player.clube);
+            System.out.println(player.nome + " " + player.sobrenome +
+                    " é um futbolista brasileiro de " + player.idade +
+                    " anos que atua como " + player.posicao +
+                    ". Atualmente no clube " + player.clube);
         }
+
+        GeradorSenha.gerarSenha();
+        GeradorPokemon.gerarPokemons();
     }
 
     static void ex01() {
